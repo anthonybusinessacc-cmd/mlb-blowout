@@ -141,6 +141,10 @@ app.add_middleware(
 # ---------------------------------------------------------------------------
 # Endpoints
 # ---------------------------------------------------------------------------
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
 @app.get("/games")
 async def get_games():
     async with _cache_lock:
